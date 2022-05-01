@@ -44,12 +44,17 @@ function inicializaCronometro(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);
             if(tempoRestante < 1){
-                campo.attr("disabled", true);
-                clearInterval(cronometroID)
-                campo.toggleClass("campo-desativado");
+                clearInterval(cronometroID);
+                finalizaJogo();
             }
         }, 1000);
     });
+}
+
+function finalizaJogo(){
+    campo.attr("disabled", true);
+    campo.toggleClass("campo-desativado");
+    inserePlacar();
 }
 
 function inicializaMarcadores(){
@@ -67,6 +72,19 @@ function inicializaMarcadores(){
         campo.addClass("borda-verde");
     }
 })
+}
+
+function inserePlacar(){
+    var corpoTabela = $(".placar").find("tbody");
+    var usuario = "Carolina";
+    var numPalavras = $("#contador-palavras").text();
+
+    var linha = "<tr>"+
+                    "<td>"+ usuario + "</td>"+
+                    "<td>"+ numPalavras + "</td>"+
+                "<tr>"
+
+    corpoTabela.prepend(linha);
 }
 
 function reiniciaJogo(){
