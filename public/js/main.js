@@ -15,8 +15,18 @@ campo.on("input", function(){
 
 });
 
+var tempoRestante = $("#tempo-digitacao").text();
+campo.one("focus", function(){
+    var cronometroID = setInterval(function(){             // setInterval serve para chamar coisas de tanto em tanto tempo
+        tempoRestante--;
+        $("#tempo-digitacao").text(tempoRestante);
+        if(tempoRestante < 1){
+            campo.attr("disabled", true);
+            clearInterval(cronometroID)
+        }
+    }, 1000);
 
-
+});
 
 
 
