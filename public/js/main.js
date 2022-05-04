@@ -8,6 +8,10 @@ $(function(){
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);   // click é a mesma coisa que on.("click")
     atualizaPlacar();
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    })
 })
 
 // a maneira feita acima é o atalho dessa função:
