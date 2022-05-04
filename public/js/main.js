@@ -8,11 +8,16 @@ $(function(){
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);   // click é a mesma coisa que on.("click")
     atualizaPlacar();
+
     $("#usuarios").selectize({
         create: true,
         sortField: 'text'
-    })
-})
+    });
+
+    $('.tooltip').tooltipster({
+        trigger: "custom"
+    });
+});
 
 // a maneira feita acima é o atalho dessa função:
 // $(document).ready(function(){   //essa função chama o que está dentro quando a página carrega
