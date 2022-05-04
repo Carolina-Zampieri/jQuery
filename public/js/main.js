@@ -7,6 +7,7 @@ $(function(){
     inicializaCronometro();
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);   // click é a mesma coisa que on.("click")
+    atualizaPlacar();
 })
 
 // a maneira feita acima é o atalho dessa função:
